@@ -1,0 +1,40 @@
+TEST TEMPLATE
+
+d = deferred
+e = met by enhancement
+p = passed
+
+Requirements (Basic Quiz)
+============
+[] Trivia game with either multiple choice or true/false options
+[] Game limits the amount of time the player has to finish
+[] Game display a countdown timer
+[] Game ends when time runs out
+[] At game end page reveals how many questions were answered correctly and how many incorrectly
+[] Prevent player from choosing more than one answer per question
+
+
+Bonus
+=====
+
+
+Functionality
+=============
+
+
+
+Display
+=======
+
+
+
+GitHub Pages
+============
+[] Page performs on load as expected
+[] Page performs after reload as expected
+
+Cleanup
+=======
+[] HTML validates
+[] CSS validates
+[] JS delinted (stretch)

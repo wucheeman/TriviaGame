@@ -1,0 +1,6 @@
+body {
+  background-image: url('../images/eniac.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 800px; /* TODO: make 100% when page is filled in
+}
