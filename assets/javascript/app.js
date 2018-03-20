@@ -3,23 +3,29 @@
 // GLOBAL VARIABLES
 // =============================================================================
 // TODO:delete questions?
-var question_0;
-var question_1;
-var question_2;
-var question_3;
-var question_4;
-var question_5;
-var question_6;
-var question_7;
-var question_8;
-var question_9;
+// var question_0;
+// var question_1;
+// var question_2;
+// var question_3;
+// var question_4;
+// var question_5;
+// var question_6;
+// var question_7;
+// var question_8;
+// var question_9;
+var timeForQuiz;
+var correctGuesses;
+var wrongGuesses;
+var unanswered;
+var timeLeft;
+var correctAnswers;
 
 // GLOBAL OBJECTS
 // =============================================================================
 var timer = {
   // this provides the countdown for the game
   // TODO: use setInterval to replace this dummy functionality
-  time: 42,
+  timeFo: 42,
   loggit: function() {
    console.log("I'm logging it!");
   },
@@ -34,32 +40,107 @@ var timer = {
 // FUNCTIONS
 // =============================================================================
 
-function done() {
-  // handle these cases
-  // - expiration of timer
-  // - user clicking 'done' button
-  // returns true when either happens
-};
+  // TODO
+function determineOutcome(qAndA) {
+  // decides outcome given question and answer
+  console.log("in determineOutcome");
+  // get question as first element in qAndA
+  // retrieve correct answer
+  // compare correct answer to second element in qAndA
+  // return 'right' or 'wrong' as appropriate
+}
+
+  // TODO
+function handleStartButton() {
+  // event handler for start button
+  console.log("in handleStartButton");
+  var update;
+  // compose update to:
+  // + hide start button
+  // + reveal questions
+  updateDisplay(update);
+}
+
+  // TODO
+function handleDoneButton() {
+  // event handler for done button
+
+  console.log("in handleDoneButton")
+  // when button is clicked, call noTimeLeft
+}
+
+// TODO
+function initializeGlobals() {
+  console.log("initializing globals");
+  timeForQuiz = 60000; // 60 seconds
+  correctGuesses = 0;
+  wrongGuesses = 0;
+  unanswered = 10;
+  timeLeft = true;
+  // index corresponds to order of corresponding question
+  // TODO: complete with remaining answers and make more random
+  correctAnswers = [0, 3, 1, 1, 1];
+}
 
 function main() {
-  // TODO remove when timer is working
-  timer.loggit();
-  timer.countdown();
-  console.log("this works");
+  console.log("starting main");
   startGame();
   playGame();
   scoreGame();
 }
 
+  // TODO
+function noTimeLeft() {
+  // declares quiz is over
+  console.log("in noTimeLeft");
+  // handle these cases
+  // - expiration of timer
+  // - user clicking 'done' button
+  // returns true when either happens else return false
+};
 
+  // TODO
+function playGame() {
+  // enables player to take the quiz
+  console.log("entering playGame");
+  var outcome;
+  var qAndA;
+  // while timer is running (!noTimeLeft())
+  //  get user click on a question and compose qAndA
+  outcome = determineOutcome(qAndA);
+  updateCounters(outcome);
+  // end while
+}
 
 function startGame() {
   console.log("in startGame()");
-  // initialize global variables
-  // handle start via start button
-  // turn on main page
+  handleStartButton();
+  initializeGlobals();
 }
 
+  // TODO
+function scoreGame() {
+  // displays correct/incorrect stats
+  console.log("in scoreGame");
+  // compose message to updateDisplay
+  var update;
+  updateDisplay(update);
+}
+
+  // TODO
+function updateCounters(outcome) {
+  // updates guessed right/wrong
+  console.log("in updateCounters");
+  // if outcome === right, correctGuesses++, unanswered--
+  // else if outcome === wrong, wrongGuesses++,  unanswered--
+  // else how did I get here?
+}
+
+  // TODO
+function updateDisplay(update) {
+  // sole render function; updates display based on argument received
+  console.log("in updateDisplay");
+}
 
 
 
@@ -71,7 +152,7 @@ then
 */
 
 // GAME
-
+// =============================================================================
 $(document).ready(function() {
 	main();
 })
