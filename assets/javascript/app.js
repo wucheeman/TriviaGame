@@ -146,9 +146,9 @@ function updateDisplay(update) {
 
 
 /* RESUME
-finish first pass psuedo code
-Get radio button functionality working
-then 
+[] Get timer working and displaying correctly
+[] Get radio button functionality working
+
 */
 
 // GAME
