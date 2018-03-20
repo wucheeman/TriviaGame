@@ -3,6 +3,7 @@ TEST TEMPLATE
 d = deferred
 e = met by enhancement
 p = passed
+w = waiting for further work
 
 Requirements (Basic Quiz)
 ============
@@ -12,6 +13,9 @@ Requirements (Basic Quiz)
 [] Game ends when time runs out
 [] At game end page reveals how many questions were answered correctly and how many incorrectly
 [] Prevent player from choosing more than one answer per question
+[] There is a 'start' button at the beginning of the game that starts the clock and begins display of questions.
+[] There is a 'done' button at the bottom of the quiz that can be used to stop the clock and trigger analysis of the answers.
+[] The page just extends down until the last question is asked. There is no scrolling support outside of what the browser provides.
 
 
 Bonus
@@ -20,13 +24,13 @@ Bonus
 
 Functionality
 =============
-
-
+[] Game initializes globals correctly
+[] Game reinitializes globals correctly
 
 Display
 =======
-
-
+[] Game has all the basic parts shown in the picture of the demo. 
+[] TODO: Add specific behaviors from demo video
 
 GitHub Pages
 ============

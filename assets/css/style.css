@@ -2,5 +2,14 @@ body {
   background-image: url('../images/eniac.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 800px; /* TODO: make 100% when page is filled in
+}
+
+label {
+  padding-left: 1%;
+  padding-right: 3%;
+}
+
+.form-group {
+  margin-top: 0%;
+  margin-bottom: 0%;
 }
