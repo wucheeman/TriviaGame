@@ -2,6 +2,7 @@
 
 // GLOBAL VARIABLES
 // =============================================================================
+// TODO:delete questions?
 var question_0;
 var question_1;
 var question_2;
@@ -17,6 +18,7 @@ var question_9;
 // =============================================================================
 var timer = {
   // this provides the countdown for the game
+  // TODO: use setInterval to replace this dummy functionality
   time: 42,
   loggit: function() {
    console.log("I'm logging it!");
@@ -32,16 +34,40 @@ var timer = {
 // FUNCTIONS
 // =============================================================================
 
+function done() {
+  // handle these cases
+  // - expiration of timer
+  // - user clicking 'done' button
+  // returns true when either happens
+};
+
 function main() {
+  // TODO remove when timer is working
   timer.loggit();
   timer.countdown();
   console.log("this works");
+  startGame();
+  playGame();
+  scoreGame();
 }
 
 
 
+function startGame() {
+  console.log("in startGame()");
+  // initialize global variables
+  // handle start via start button
+  // turn on main page
+}
+
+
+
+
+
 /* RESUME
+finish first pass psuedo code
 Get radio button functionality working
+then 
 */
 
 // GAME
