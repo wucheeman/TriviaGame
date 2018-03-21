@@ -23,17 +23,47 @@ var correctAnswers;
 // GLOBAL OBJECTS
 // =============================================================================
 var timer = {
-  // this provides the countdown for the game
-  // TODO: use setInterval to replace this dummy functionality
-  timeFo: 42,
-  loggit: function() {
-   console.log("I'm logging it!");
-  },
-  countdown: function() {
-    while (this.time > 0) {
-      this.time--;
-      console.log(timer.time);
+  number: 90, // starting value for countdown
+  time: "",
+  intervalId: 0, // holds ID for Interval; needed to cancel
+  decrement: function() {
+    timer.number-- ;
+    timer.time = timer.timeConverter(timer.number);
+  //  console.log(timer.time);
+  //  TODO: Move to the updatedisplay function
+    $("#show-timer").html("<h2>" + timer.time + "</h2>");
+    if (timer.number <= 0) {
+      timer.stop();
+      alert("Time Up!");
     }
+  },
+  run: function () {
+    console.log("in timer.run()");
+    timer.intervalId = setInterval( function() {
+      timer.decrement();
+    }, 1000);
+    console.log("timer.intervalId is: " + timer.intervalId);
+  },
+  stop: function() {
+  //  Clears intervalId
+    console.log("in timer.stop()");
+    console.log('timer.intervalId: ' + timer.intervalId);
+    clearInterval(timer.intervalId);
+  },
+  timeConverter: function(t) {
+  var minutes = Math.floor(t / 60);
+  var seconds = t - (minutes * 60);
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  // assumes we don't go over 9 minutes!
+  if (minutes === 0) {
+    minutes = "00";
+  }
+  else if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  return minutes + ":" + seconds;
   }
 };
 
@@ -153,10 +183,16 @@ function updateDisplay(update) {
 
 // GAME
 // =============================================================================
-$(document).ready(function() {
-	main();
-})
+// $(document).ready(function() {
+// 	main();
+// })
 
+
+$(function() {
+  console.log('window loaded');
+  $("#start").on("click", timer.run);
+  $("#stop").on("click", timer.stop);
+});
 
 
 // DATA
