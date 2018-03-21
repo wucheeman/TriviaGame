@@ -13,7 +13,6 @@
 // var question_7;
 // var question_8;
 // var question_9;
-var timeForQuiz;
 var correctGuesses;
 var wrongGuesses;
 var unanswered;
@@ -80,36 +79,38 @@ function determineOutcome(qAndA) {
   // return 'right' or 'wrong' as appropriate
 }
 
-  // TODO
-function handleStartButton() {
-  // event handler for start button
-  console.log("in handleStartButton");
-  var update;
-  // compose update to:
-  // + hide start button
-  // + reveal questions
-  updateDisplay(update);
-}
+  // TODO - delete
+// function handleStartButton() {
+//   // event handler for start button
+//   console.log("in handleStartButton");
+//   var update;
+//   // compose update to:
+//   // + hide start button
+//   // + reveal questions
+//   updateDisplay(update);
+// }
 
-  // TODO
-function handleDoneButton() {
-  // event handler for done button
+  // TODO - delete
+// function handleDoneButton() {
+//   // event handler for done button
 
-  console.log("in handleDoneButton")
-  // when button is clicked, call noTimeLeft
+//   console.log("in handleDoneButton")
+//   // when button is clicked, call noTimeLeft
+// }
+
+function initializeDisplay() {
+  // this initializes display via call to updateDisplay
 }
 
 // TODO
 function initializeGlobals() {
   console.log("initializing globals");
-  timeForQuiz = 60000; // 60 seconds
   correctGuesses = 0;
   wrongGuesses = 0;
   unanswered = 10;
   timeLeft = true;
-  // index corresponds to order of corresponding question
-  // TODO: complete with remaining answers and make more random
-  correctAnswers = [0, 3, 1, 1, 1];
+  // indices in order of corresponding questions
+    correctAnswers = [0, 3, 1, 1, 1, 4, 3, 0, 2, 0];
 }
 
 function main() {
@@ -144,8 +145,9 @@ function playGame() {
 
 function startGame() {
   console.log("in startGame()");
-  handleStartButton();
   initializeGlobals();
+  initializeDisplay();
+  timer.run()
 }
 
   // TODO
@@ -176,45 +178,18 @@ function updateDisplay(update) {
 
 
 /* RESUME
-[] Get timer working and displaying correctly
+[-] Get timer working and displaying correctly
 [] Get radio button functionality working
+[] TODO - prevent user from starting/restarting timer
 
 */
 
 // GAME
 // =============================================================================
-// $(document).ready(function() {
-// 	main();
-// })
-
 
 $(function() {
-  console.log('window loaded');
-  $("#start").on("click", timer.run);
+  console.log('page loaded');
+  $("#start").on("click", main);
+  // TODO - change function to trigger end-of-game processing
   $("#stop").on("click", timer.stop);
 });
-
-
-// DATA
-// =============================================================================
-// TODO: Move to a separate file in case these are needed later
-
-// question_0 = ["Q: What is the name of the computer shown as the background to this game?", "ENIAC", "UNIVAC", "CANIAC", "MANIAC", "Colossus"];
-
-// var question_1 = ["Q: The Mother of All Demos in 1968 showcased essentially all elements of modern personal computing, including the mouse, windows, video conferencing, and more. Who was the organizing talent behind it?", "Steve Jobs", "Bill Gates", "Elon Musk", "Douglas Engelbart", "Robert Metcalfe"];
-
-// var question_2 = ["Q: Gottfried Wilhelm Leibniz is famous as a polymath and one of the two inventors of calculus. What area critical to computing did he study?", "magnetism", "binary numbers", "electricity", "phosphorescence", "programming"];
-
-// var question_3 = ["Herman Hollerith founded a company in 1886 that later grew to become IBM. It produced tabulating machinery that processed data recorded on punched cards that is a direct precursor to the computer. What was one important way it was used?", "compiling railroad timetables", "computing census data", "counting votes in Congress", "controlling immigration quotas", "running Henry Ford's factory"];
-
-// var question_4 = ["Q: Alan Turing was a mathematician and cryptographer. We speak of computers and programming languages as being 'Turing complete? What does that mean?", "They are complete hogwash", "They can run any program", "They are specialized for code breaking", "They are completely incomprehsible", "They use infinite paper tapes for computing"];
-
-// var question_5 = ["Q: Many people enjoy their IPad without knowing their debt to the inventor of the Dynabook. Who was that and where did he work?", "Steve Wozniak: Apple", "Sergei Brin: Google", "Richard Feynman: CalTech", "Brian Kernighan: Bell Labs", "Alan Kaye: Xerox PARC"];
-
-// var question_6 = ["Q: Joseph Marie Jacquard was one of the foremost pioneers in the use of punched cards. What were his cards used for?", "to control weaving looms", "to compute census data", "count art works in the Louvre", "draft soldiers for Napoleon", "open and close canal gates"];
-
-// var question_7 = ["Q: George Babbage is one of the most famous pioneers of computing history. What was his Analytic Engine intended to do?", "Produce tables of numbers", "Help people play solitaire", "Compute ballistic trajectories", "Give Ada Lovelace something to do", "Make money"];
-
-// var question_8 = ["Q: Ada Lovelace, of course, is famous as the first programmer. Her father was a famous poet, and her mother trained Ada in mathematics so she would not be like him. Who was he?", "Shelley", "Byron", "Keats", "Shakespeare", "Rilke"];
-
-// var question_9 = ["Q: John von Neumann was a mathematician. As a result of his contribution, virtually all modern computers can be termed 'Von Neumann machines'. Why?", "He foresaw the virtual machine", "He invented RAM by accident", "He described their fundamental architecture", "He managed early computer projects", "He could code in binary"];
