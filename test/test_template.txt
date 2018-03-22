@@ -29,6 +29,9 @@ Functionality
 =============
 [] Game initializes globals correctly
 [] Game reinitializes globals correctly
+[] Game prevents user from starting/restarting timer
+[] Game prevents user from changing answers and resubmitting
+[] Countdown timer ends at 0 and does not continue
 
 Display
 =======
