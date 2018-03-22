@@ -2,22 +2,13 @@
 
 // GLOBAL VARIABLES
 // =============================================================================
-// TODO:delete questions?
-// var question_0;
-// var question_1;
-// var question_2;
-// var question_3;
-// var question_4;
-// var question_5;
-// var question_6;
-// var question_7;
-// var question_8;
-// var question_9;
+var numQuestions;
 var correctGuesses;
 var wrongGuesses;
 var unanswered;
 var timeLeft;
 var correctAnswers;
+var userAnswers;
 
 // GLOBAL OBJECTS
 // =============================================================================
@@ -29,7 +20,8 @@ var timer = {
     timer.number-- ;
     timer.time = timer.timeConverter(timer.number);
   //  console.log(timer.time);
-  //  TODO: Move to the updatedisplay function
+  //  TODO: Move to the updatedisplay function?
+  // TODO: make this call endGame()
     $("#show-timer").html("<h2>" + timer.time + "</h2>");
     if (timer.number <= 0) {
       timer.stop();
@@ -69,34 +61,47 @@ var timer = {
 // FUNCTIONS
 // =============================================================================
 
-  // TODO
-function determineOutcome(qAndA) {
-  // decides outcome given question and answer
-  console.log("in determineOutcome");
-  // get question as first element in qAndA
-  // retrieve correct answer
-  // compare correct answer to second element in qAndA
-  // return 'right' or 'wrong' as appropriate
+function collectAnswers() {
+  console.log("in collectAnswers");
+  var answered;
+  for (var i = 0; i < numQuestions; i++) {
+    // if question not answered, value is 'undefined'
+    answered = $('input[name=answers' + i + ']:checked').val();
+    console.log(answered);
+    console.log(typeof answered);
+    userAnswers.push(answered);
+  }
+  console.log();
 }
 
-  // TODO - delete
-// function handleStartButton() {
-//   // event handler for start button
-//   console.log("in handleStartButton");
-//   var update;
-//   // compose update to:
-//   // + hide start button
-//   // + reveal questions
-//   updateDisplay(update);
-// }
+  // TODO
+function determineOutcome(qAndA) {
+  // decides outcome (right/wrong), given question and user's answer
+  console.log("in determineOutcome");
+  for (var i = 0; i < numQuestions; i ++) {
+    console.log("i = " + i + "; userAnswers[i] is: " + userAnswers[i] + "correctAnswers[i] is: " + correctAnswers[i]);
+    if (userAnswers[i] === undefined) {
+      unanswered++;
+    }
+    else if (userAnswers[i] === correctAnswers[i]) {
+      correctGuesses++;
+    }
+    else {
+      wrongGuesses++;
+    }
+  }
+  console.log("unaswered: " + unanswered);
+  console.log("correct: " + correctGuesses);
+  console.log("wrong: " + wrongGuesses);
+}
 
-  // TODO - delete
-// function handleDoneButton() {
-//   // event handler for done button
-
-//   console.log("in handleDoneButton")
-//   // when button is clicked, call noTimeLeft
-// }
+function endGame() {
+  // removes questions and puts up game outcome
+  timer.stop();
+  collectAnswers();
+  determineOutcome();
+  // TODO: have it call updateDisplay to put up end-of-game page
+}
 
 function initializeDisplay() {
   // this initializes display via call to updateDisplay
@@ -107,54 +112,32 @@ function initializeGlobals() {
   console.log("initializing globals");
   correctGuesses = 0;
   wrongGuesses = 0;
-  unanswered = 10;
+  unanswered = 0;
   timeLeft = true;
+  numQuestions = 10;
+  userAnswers= [];
   // indices in order of corresponding questions
-    correctAnswers = [0, 3, 1, 1, 1, 4, 3, 0, 2, 0];
+  correctAnswers = ["01", "14", "22", "32", "42", "55", "64", "71", "83", "91"];
 }
 
 function main() {
   console.log("starting main");
-  startGame();
-  playGame();
-  scoreGame();
-}
-
-  // TODO
-function noTimeLeft() {
-  // declares quiz is over
-  console.log("in noTimeLeft");
-  // handle these cases
-  // - expiration of timer
-  // - user clicking 'done' button
-  // returns true when either happens else return false
-};
-
-  // TODO
-function playGame() {
-  // enables player to take the quiz
-  console.log("entering playGame");
-  var outcome;
-  var qAndA;
-  // while timer is running (!noTimeLeft())
-  //  get user click on a question and compose qAndA
-  outcome = determineOutcome(qAndA);
-  updateCounters(outcome);
-  // end while
-}
-
-function startGame() {
-  console.log("in startGame()");
   initializeGlobals();
   initializeDisplay();
-  timer.run()
+  console.log("starting game play");
+  timer.run();
 }
+
+
+
+
 
   // TODO
 function scoreGame() {
   // displays correct/incorrect stats
   console.log("in scoreGame");
   // compose message to updateDisplay
+  // to hide questions and display results
   var update;
   updateDisplay(update);
 }
@@ -178,9 +161,20 @@ function updateDisplay(update) {
 
 
 /* RESUME
-[-] Get timer working and displaying correctly
-[] Get radio button functionality working
-[] TODO - prevent user from starting/restarting timer
+[x] Get timer working and displaying correctly
+[-] Get radio button functionality working
+  (x) confirm in radio_buttons.html that I don't need <divs> around button groups
+  (x) Update html to have each question's radio buttons named the same -- and differently from all other groups
+  (x) Transfer/extend JS from radio-buttons.html to collect answers
+  (x) Trigger collect answerswith stop button
+[] Build evaluate outcomes 
+[] First round test - clock starts, but has no effect on game; answer questions; compute results
+[] move stop button to end of questions
+[] expiration of time/click of stop triggers score game
+[] hide questions and only show title and start button at game beginning
+[] Prevent user from starting/restarting timer
+[] Prevent user from changing answers and resubmitting
+[] delete class 'questions' and ids q1, q2, ... q9 if unused
 
 */
 
@@ -191,5 +185,5 @@ $(function() {
   console.log('page loaded');
   $("#start").on("click", main);
   // TODO - change function to trigger end-of-game processing
-  $("#stop").on("click", timer.stop);
+  $("#stop").on("click", endGame);
 });
