@@ -17,7 +17,7 @@ Requirements (Basic Quiz)
 	() not answered
 [] Prevent player from choosing more than one answer per question
 [] There is a 'start' button at the beginning of the game that starts the clock and begins display of questions.
-[] There is a 'done' button at the bottom of the quiz that can be used to stop the clock and trigger analysis of the answers.
+[] There is a 'stop' button at the bottom of the quiz that can be used to stop the clock and trigger analysis of the answers.
 [] The page extends down until the last question is asked. No scrolling support required beyond what the browser provides.
 
 
@@ -31,7 +31,12 @@ Functionality
 [] Game reinitializes globals correctly
 [] Game prevents user from starting/restarting timer
 [] Game prevents user from changing answers and resubmitting
-[] Countdown timer ends at 0 and does not continue
+[] Countdown timer ends at 0 and does not continue when the timer expires
+[] Countdowm timer stops when user presses 'stop' button
+[] Game grades user guess correctly
+	() recognizes all correct answers
+	() recognizes 'un-answers'
+	() recognizes wrong answers
 
 Display
 =======
