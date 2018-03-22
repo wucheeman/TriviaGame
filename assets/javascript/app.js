@@ -162,20 +162,26 @@ function updateDisplay(update) {
 
 /* RESUME
 [x] Get timer working and displaying correctly
-[-] Get radio button functionality working
+[x] Get radio button functionality working
   (x) confirm in radio_buttons.html that I don't need <divs> around button groups
   (x) Update html to have each question's radio buttons named the same -- and differently from all other groups
   (x) Transfer/extend JS from radio-buttons.html to collect answers
   (x) Trigger collect answerswith stop button
-[] Build evaluate outcomes 
-[] First round test - clock starts, but has no effect on game; answer questions; compute results
+[x] Build evaluate outcomes 
+[x] click of stop triggers end of game
+[x] First round test - clock starts, but has no effect on game; answer questions; compute results
+[] expiration of time triggers score game
 [] move stop button to end of questions
-[] expiration of time/click of stop triggers score game
 [] hide questions and only show title and start button at game beginning
+[] hide questions and only show results at game end
 [] Prevent user from starting/restarting timer
 [] Prevent user from changing answers and resubmitting
-[] delete class 'questions' and ids q1, q2, ... q9 if unused
-
+[x] delete class 'questions' and ids q1, q2, ... q9 if unused
+[] Second round test
+[] Review and complete remaining TODOs
+[] Beautify page as time permits
+[] Clean up all code
+[] Final test before submission
 */
 
 // GAME
