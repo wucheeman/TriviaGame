@@ -13,7 +13,7 @@ var userAnswers;
 // GLOBAL OBJECTS
 // =============================================================================
 var timer = {
-  number: 90, // starting value for countdown
+  number: 10, // starting value for countdown
   time: "",
   intervalId: 0, // holds ID for Interval; needed to cancel
   decrement: function() {
@@ -40,6 +40,7 @@ var timer = {
     console.log("in timer.stop()");
     console.log('timer.intervalId: ' + timer.intervalId);
     clearInterval(timer.intervalId);
+    endGame();
   },
   timeConverter: function(t) {
   var minutes = Math.floor(t / 60);
@@ -74,9 +75,8 @@ function collectAnswers() {
   console.log();
 }
 
-  // TODO
 function determineOutcome(qAndA) {
-  // decides outcome (right/wrong), given question and user's answer
+  // decides outcome (right/wrong) and updates counters
   console.log("in determineOutcome");
   for (var i = 0; i < numQuestions; i ++) {
     console.log("i = " + i + "; userAnswers[i] is: " + userAnswers[i] + "correctAnswers[i] is: " + correctAnswers[i]);
@@ -97,17 +97,17 @@ function determineOutcome(qAndA) {
 
 function endGame() {
   // removes questions and puts up game outcome
-  timer.stop();
+  // timer.stop(); delete?
   collectAnswers();
   determineOutcome();
   // TODO: have it call updateDisplay to put up end-of-game page
 }
 
+// TODO
 function initializeDisplay() {
   // this initializes display via call to updateDisplay
 }
 
-// TODO
 function initializeGlobals() {
   console.log("initializing globals");
   correctGuesses = 0;
@@ -126,11 +126,8 @@ function main() {
   initializeDisplay();
   console.log("starting game play");
   timer.run();
+  // game runs until time expires/user clicks stop, triggering endGame()
 }
-
-
-
-
 
   // TODO
 function scoreGame() {
@@ -142,23 +139,21 @@ function scoreGame() {
   updateDisplay(update);
 }
 
-  // TODO
-function updateCounters(outcome) {
-  // updates guessed right/wrong
-  console.log("in updateCounters");
-  // if outcome === right, correctGuesses++, unanswered--
-  // else if outcome === wrong, wrongGuesses++,  unanswered--
-  // else how did I get here?
-}
-
-  // TODO
+// TODO
 function updateDisplay(update) {
   // sole render function; updates display based on argument received
   console.log("in updateDisplay");
 }
 
+// GAME
+// =============================================================================
 
-
+$(function() {
+  console.log('page loaded');
+  $("#start").on("click", main);
+  // TODO - change function to trigger end-of-game processing
+  $("#stop").on("click", timer.stop); // was endGame
+});
 
 /* RESUME
 [x] Get timer working and displaying correctly
@@ -170,7 +165,7 @@ function updateDisplay(update) {
 [x] Build evaluate outcomes 
 [x] click of stop triggers end of game
 [x] First round test - clock starts, but has no effect on game; answer questions; compute results
-[] expiration of time triggers score game
+[x] expiration of time triggers score game
 [] move stop button to end of questions
 [] hide questions and only show title and start button at game beginning
 [] hide questions and only show results at game end
@@ -183,13 +178,3 @@ function updateDisplay(update) {
 [] Clean up all code
 [] Final test before submission
 */
-
-// GAME
-// =============================================================================
-
-$(function() {
-  console.log('page loaded');
-  $("#start").on("click", main);
-  // TODO - change function to trigger end-of-game processing
-  $("#stop").on("click", endGame);
-});
