@@ -13,7 +13,7 @@ var userAnswers;
 // GLOBAL OBJECTS
 // =============================================================================
 var timer = {
-  number: 10, // starting value for countdown
+  number: 90, // starting value for countdown
   time: "",
   intervalId: 0, // holds ID for Interval; needed to cancel
   decrement: function() {
@@ -95,6 +95,13 @@ function determineOutcome(qAndA) {
   console.log("wrong: " + wrongGuesses);
 }
 
+function getQuestions() {
+  // brings questions from questions.js into this file
+  // TODO: delete if smarter way to do this
+  makeQuestions();
+  console.log(questions); 
+}
+
 function endGame() {
   // removes questions and puts up game outcome
   // timer.stop(); delete?
@@ -124,8 +131,11 @@ function main() {
   console.log("starting main");
   initializeGlobals();
   initializeDisplay();
+  // console.log(getQuestions());
+  getQuestions();
   console.log("starting game play");
   timer.run();
+  $("#displayArea").html(questions);
   // game runs until time expires/user clicks stop, triggering endGame()
 }
 
@@ -161,14 +171,19 @@ $(function() {
   (x) confirm in radio_buttons.html that I don't need <divs> around button groups
   (x) Update html to have each question's radio buttons named the same -- and differently from all other groups
   (x) Transfer/extend JS from radio-buttons.html to collect answers
-  (x) Trigger collect answerswith stop button
+  (x) Trigger collect answers with stop button
 [x] Build evaluate outcomes 
 [x] click of stop triggers end of game
 [x] First round test - clock starts, but has no effect on game; answer questions; compute results
 [x] expiration of time triggers score game
-[] move stop button to end of questions
+[x] move stop button to end of questions
+[x] make file that has only questions and concatenates all questions into HTML that can be displayed dynamically.
+[] Update game-as-is to build the questions dynamically and verify they can be counted
 [] hide questions and only show title and start button at game beginning
+[] hide start button and only show timer, questions, and stop button once game has started
 [] hide questions and only show results at game end
+[] TODO: fix bug; after timer expires, user can click 'start' and restart timer. DEFER until start button is 'disappeaared'; may not be a problem after that.
+
 [] Prevent user from starting/restarting timer
 [] Prevent user from changing answers and resubmitting
 [x] delete class 'questions' and ids q1, q2, ... q9 if unused
