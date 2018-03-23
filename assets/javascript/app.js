@@ -106,7 +106,24 @@ function endGame() {
   // timer.stop(); delete?
   collectAnswers();
   determineOutcome();
-  // TODO: have it call updateDisplay to put up end-of-game page
+  var message =
+    `
+    <div class="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-8 bg-success text-center">
+        <h5>Correct: ${correctGuesses}</h5>
+        <h5>Incorrect: ${wrongGuesses}</h5>
+        <h5>Unanswered: ${unanswered}</h5>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+    `
+  updateDisplay(["#displayArea", message]);
+  // TODO move to updateDisplay
+  $("#show-timer").css("visibility", "hidden");
+  $("#stop").css("visibility", "hidden");
 }
 
 // TODO or delete
@@ -158,6 +175,7 @@ function scoreGame() {
 function updateDisplay(update) {
   // sole render function; updates display based on argument received
   console.log("in updateDisplay");
+  $(update[0]).html(update[1]);
 }
 
 // GAME
@@ -168,34 +186,3 @@ $(function() {
   $("#start").on("click", main);
   $("#stop").on("click", timer.stop);
 });
-
-/* COMMIT TASK LIST
-[x] Get timer working and displaying correctly
-[x] Get radio button functionality working
-  (x) confirm in radio_buttons.html that I don't need <divs> around button groups
-  (x) Update html to have each question's radio buttons named the same -- and differently from all other groups
-  (x) Transfer/extend JS from radio-buttons.html to collect answers
-  (x) Trigger collect answers with stop button
-[x] Build evaluate outcomes 
-[x] click of stop triggers end of game
-[x] First round test - clock starts, but has no effect on game; answer questions; compute results
-[x] expiration of time triggers score game
-[x] move stop button to end of questions
-[x] make file that has only questions and concatenates all questions into HTML that can be displayed dynamically.
-[x] Update game-as-is to build the questions dynamically and verify they can be counted
-[x] hide questions and stop button; only show title and start button at game beginning
-[x] hide start button and only show timer, questions, and stop button once game has started
-[] create permanent space for timer so its apppearance does not shove rest of page down
-[] hide questions and only show results at game end
-[] TODO: fix bug; after timer expires, user can click 'start' and restart timer. DEFER until start button is 'disappeared'; may not be a problem after that.
-
-[] Prevent user from starting/restarting timer
-[] Prevent user from changing answers and resubmitting
-[x] delete class 'questions' and ids q1, q2, ... q9 if unused
-[] Second round test
-[] Review and complete remaining TODOs
-[] Beautify page as time permits
-    () make first page "big enough"
-[] Clean up all code
-[] Final test before submission
-*/
