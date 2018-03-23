@@ -135,6 +135,8 @@ function main() {
   getQuestions();
   console.log("starting game play");
   timer.run();
+  // hides the start button + takes up no space
+  $("#start").css("display", "none");
   $("#displayArea").html(questions);
   // game runs until time expires/user clicks stop, triggering endGame()
 }
@@ -161,8 +163,7 @@ function updateDisplay(update) {
 $(function() {
   console.log('page loaded');
   $("#start").on("click", main);
-  // TODO - change function to trigger end-of-game processing
-  $("#stop").on("click", timer.stop); // was endGame
+  $("#stop").on("click", timer.stop);
 });
 
 /* RESUME
@@ -178,9 +179,9 @@ $(function() {
 [x] expiration of time triggers score game
 [x] move stop button to end of questions
 [x] make file that has only questions and concatenates all questions into HTML that can be displayed dynamically.
-[] Update game-as-is to build the questions dynamically and verify they can be counted
-[] hide questions and only show title and start button at game beginning
-[] hide start button and only show timer, questions, and stop button once game has started
+[x] Update game-as-is to build the questions dynamically and verify they can be counted
+[-] hide questions and stop button; only show title and start button at game beginning
+[x] hide start button and only show timer, questions, and stop button once game has started
 [] hide questions and only show results at game end
 [] TODO: fix bug; after timer expires, user can click 'start' and restart timer. DEFER until start button is 'disappeaared'; may not be a problem after that.
 
@@ -190,6 +191,7 @@ $(function() {
 [] Second round test
 [] Review and complete remaining TODOs
 [] Beautify page as time permits
+    () make first page "big enough"
 [] Clean up all code
 [] Final test before submission
 */
