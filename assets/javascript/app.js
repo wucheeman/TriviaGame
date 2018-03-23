@@ -94,12 +94,13 @@ function determineOutcome(qAndA) {
   console.log("wrong: " + wrongGuesses);
 }
 
-function getQuestions() {
-  // brings questions from questions.js into this file
-  // TODO: delete if smarter way to do this
-  makeQuestions();
-  console.log(questions); 
-}
+// TODO: delete/unnecessary
+// function getQuestions() {
+//   // brings questions from questions.js into this file
+//   // TODO: delete if smarter way to do this
+//   makeQuestions();
+//   console.log(questions); 
+// }
 
 function endGame() {
   // removes questions and puts up game outcome
@@ -148,10 +149,12 @@ function main() {
   console.log("starting main");
   initializeGlobals();
   initializeDisplay();
-  // console.log(getQuestions());
-  getQuestions();
+  // call to function in questions.js
+  // getQuestions();
+  makeQuestions();
   console.log("starting game play");
   timer.run();
+  // TODO: move to updateDisplay
   // hides the start button + takes up no space
   $("#start").css("display", "none");
   // fills in the questions
@@ -161,19 +164,19 @@ function main() {
   // game runs until time expires/user clicks stop, triggering endGame()
 }
 
-  // TODO
-function scoreGame() {
-  // displays correct/incorrect stats
-  console.log("in scoreGame");
-  // compose message to updateDisplay
-  // to hide questions and display results
-  var update;
-  updateDisplay(update);
-}
+//   // TODO - delete/unused
+// function scoreGame() {
+//   // displays correct/incorrect stats
+//   console.log("in scoreGame");
+//   // compose message to updateDisplay
+//   // to hide questions and display results
+//   var update;
+//   updateDisplay(update);
+// }
 
-// TODO
 function updateDisplay(update) {
-  // sole render function; updates display based on argument received
+  // intended to be sole render function
+  //  TODO: make it so
   console.log("in updateDisplay");
   $(update[0]).html(update[1]);
 }
