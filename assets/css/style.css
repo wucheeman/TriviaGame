@@ -17,3 +17,7 @@ label {
 #done {
   margin-bottom: 7%;
 }
+
+#stop {
+  visibility: hidden;
+}

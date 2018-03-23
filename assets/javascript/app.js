@@ -110,7 +110,7 @@ function endGame() {
   // TODO: have it call updateDisplay to put up end-of-game page
 }
 
-// TODO
+// TODO or delete
 function initializeDisplay() {
   // this initializes display via call to updateDisplay
 }
@@ -137,7 +137,10 @@ function main() {
   timer.run();
   // hides the start button + takes up no space
   $("#start").css("display", "none");
+  // fills in the questions
   $("#displayArea").html(questions);
+    // shows the start button
+  $("#stop").css("visibility", "visible");
   // game runs until time expires/user clicks stop, triggering endGame()
 }
 
@@ -180,10 +183,10 @@ $(function() {
 [x] move stop button to end of questions
 [x] make file that has only questions and concatenates all questions into HTML that can be displayed dynamically.
 [x] Update game-as-is to build the questions dynamically and verify they can be counted
-[-] hide questions and stop button; only show title and start button at game beginning
+[x] hide questions and stop button; only show title and start button at game beginning
 [x] hide start button and only show timer, questions, and stop button once game has started
 [] hide questions and only show results at game end
-[] TODO: fix bug; after timer expires, user can click 'start' and restart timer. DEFER until start button is 'disappeaared'; may not be a problem after that.
+[] TODO: fix bug; after timer expires, user can click 'start' and restart timer. DEFER until start button is 'disappeared'; may not be a problem after that.
 
 [] Prevent user from starting/restarting timer
 [] Prevent user from changing answers and resubmitting
