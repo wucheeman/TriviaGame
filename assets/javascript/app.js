@@ -19,9 +19,8 @@ var timer = {
   decrement: function() {
     timer.number-- ;
     timer.time = timer.timeConverter(timer.number);
-  //  console.log(timer.time);
-  //  TODO: Move to the updatedisplay function?
-  // TODO: make this call endGame()
+    //  console.log(timer.time);
+    //  TODO: Move to the updatedisplay function?
     $("#show-timer").html("<h2>" + timer.time + "</h2>");
     if (timer.number <= 0) {
       timer.stop();
@@ -113,6 +112,7 @@ function endGame() {
 // TODO or delete
 function initializeDisplay() {
   // this initializes display via call to updateDisplay
+  $("#show-timer").css("visibility", "visible");
 }
 
 function initializeGlobals() {
@@ -169,7 +169,7 @@ $(function() {
   $("#stop").on("click", timer.stop);
 });
 
-/* RESUME
+/* COMMIT TASK LIST
 [x] Get timer working and displaying correctly
 [x] Get radio button functionality working
   (x) confirm in radio_buttons.html that I don't need <divs> around button groups
@@ -185,6 +185,7 @@ $(function() {
 [x] Update game-as-is to build the questions dynamically and verify they can be counted
 [x] hide questions and stop button; only show title and start button at game beginning
 [x] hide start button and only show timer, questions, and stop button once game has started
+[] create permanent space for timer so its apppearance does not shove rest of page down
 [] hide questions and only show results at game end
 [] TODO: fix bug; after timer expires, user can click 'start' and restart timer. DEFER until start button is 'disappeared'; may not be a problem after that.
 

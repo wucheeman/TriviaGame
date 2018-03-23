@@ -18,6 +18,10 @@ label {
   margin-bottom: 7%;
 }
 
+#show-timer {
+  visibility: hidden;
+}
+
 #stop {
   visibility: hidden;
 }
