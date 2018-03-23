@@ -1,0 +1,58 @@
+TEST TEMPLATE
+
+d = deferred
+e = met by enhancement
+f/x = failed/x = severity, where mi = minor; ma = major; and c = cosmetic
+p = passed
+w = waiting for further work
+
+Requirements (Basic Quiz)
+============
+[p] Trivia game with either multiple choice or true/false options
+[p] Game limits the amount of time the player has to finish
+[p] Game display a countdown timer
+[p] Game ends when time runs out
+[p] At game end page reveals how many questions were:
+	(p) answered correctly
+	(p) answered incorrectly
+	(p) not answered
+[p] Prevent player from choosing more than one answer per question
+[p] There is a 'start' button at the beginning of the game that starts the clock and begins display of questions.
+[p] There is a 'stop' button at the bottom of the quiz that can be used to stop the clock and trigger analysis of the answers.
+[p] The page extends down until the last question is asked. No scrolling support required beyond what the browser provides.
+
+
+Bonus
+=====
+
+
+Functionality
+=============
+[p] Game initializes globals correctly
+[p] Game reinitializes globals correctly
+[p] Game prevents user from starting/restarting timer
+[p] Game prevents user from changing answers and resubmitting
+[d] Countdown timer ends at 0 and does not continue when the timer expires
+[p] Countdowm timer stops when user presses 'stop' button
+[p] Game grades user guess correctly
+	(p) recognizes all correct answers
+	(p) recognizes 'un-answers'
+	(p) recognizes wrong answers
+	(p) clicks are counted, regardless of position in array
+
+Display
+=======
+[f/c] Game has all the basic parts shown in the picture of the demo. 
+	- needs a summary message, e.g., "All Done!" in final display
+	- update to "Correct answers" and "Incorrect answers"
+
+GitHub Pages
+============
+[] Page performs on load as expected
+[] Page performs after reload as expected
+
+Cleanup
+=======
+[] HTML validates
+[] CSS validates
+[] JS delinted (stretch)

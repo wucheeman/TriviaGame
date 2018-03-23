@@ -2,6 +2,7 @@ TEST TEMPLATE
 
 d = deferred
 e = met by enhancement
+f/x = failed/x = severity, where mi = minor; ma = major; and c = cosmetic
 p = passed
 w = waiting for further work
 
@@ -37,6 +38,7 @@ Functionality
 	() recognizes all correct answers
 	() recognizes 'un-answers'
 	() recognizes wrong answers
+	() clicks are counted, regardless of position in array
 
 Display
 =======
