@@ -150,7 +150,6 @@ function main() {
   initializeGlobals();
   initializeDisplay();
   // call to function in questions.js
-  // getQuestions();
   makeQuestions();
   console.log("starting game play");
   timer.run();
