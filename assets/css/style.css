@@ -22,6 +22,16 @@ p {
   font-size: 28px;
 }
 
+.start-button {
+  background-color: #80CBC4;
+  border-color: green;
+}
+
+.stop-button {
+  background-color: #F8BBD0;
+  border-color: red;
+}
+
 .newcolor{
   background-color: #CFD8DC;
 }
