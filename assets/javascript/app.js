@@ -113,9 +113,10 @@ function endGame() {
       <div class="col-sm-2">
       </div>
       <div class="col-sm-8 bg-success text-center">
-        <h5>Correct: ${correctGuesses}</h5>
-        <h5>Incorrect: ${wrongGuesses}</h5>
-        <h5>Unanswered: ${unanswered}</h5>
+        <h3 class="mb-4">All Done!</h3>
+        <h5>Correct Answers: ${correctGuesses}</h5>
+        <h5>Incorrect Answers: ${wrongGuesses}</h5>
+        <h5 class="mb-2">Unanswered: ${unanswered}</h5>
       </div>
       <div class="col-sm-2">
       </div>
