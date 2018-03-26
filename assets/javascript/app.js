@@ -1,4 +1,4 @@
-// APP.JS
+// APP.JS - COMPUTER TRIVIA GAME
 
 // GLOBAL VARIABLES
 // =============================================================================
@@ -6,7 +6,6 @@ var numQuestions;
 var correctGuesses;
 var wrongGuesses;
 var unanswered;
-var timeLeft;
 var correctAnswers;
 var userAnswers;
 
@@ -24,20 +23,19 @@ var timer = {
     $("#show-timer").html("<h2>" + timer.time + "</h2>");
     if (timer.number <= 0) {
       timer.stop();
-      alert("Time Up!");
     }
   },
   run: function () {
-    console.log("in timer.run()");
+    // console.log("in timer.run()");
     timer.intervalId = setInterval( function() {
       timer.decrement();
     }, 1000);
-    console.log("timer.intervalId is: " + timer.intervalId);
+    //console.log("timer.intervalId is: " + timer.intervalId);
   },
   stop: function() {
   //  Clears intervalId
-    console.log("in timer.stop()");
-    console.log('timer.intervalId: ' + timer.intervalId);
+    // console.log("in timer.stop()");
+    // console.log('timer.intervalId: ' + timer.intervalId);
     clearInterval(timer.intervalId);
     endGame();
   },
@@ -62,23 +60,23 @@ var timer = {
 // =============================================================================
 
 function collectAnswers() {
-  console.log("in collectAnswers");
+  // console.log("in collectAnswers");
   var answered;
   for (var i = 0; i < numQuestions; i++) {
     // if question not answered, value is 'undefined'
     answered = $('input[name=answers' + i + ']:checked').val();
-    console.log(answered);
-    console.log(typeof answered);
+    // console.log(answered);
+    // console.log(typeof answered);
     userAnswers.push(answered);
   }
-  console.log();
+  // console.log();
 }
 
 function determineOutcome(qAndA) {
   // decides outcome (right/wrong) and updates counters
-  console.log("in determineOutcome");
+  // console.log("in determineOutcome");
   for (var i = 0; i < numQuestions; i ++) {
-    console.log("i = " + i + "; userAnswers[i] is: " + userAnswers[i] + "correctAnswers[i] is: " + correctAnswers[i]);
+    // console.log("i = " + i + "; userAnswers[i] is: " + userAnswers[i] + "correctAnswers[i] is: " + correctAnswers[i]);
     if (userAnswers[i] === undefined) {
       unanswered++;
     }
@@ -89,18 +87,10 @@ function determineOutcome(qAndA) {
       wrongGuesses++;
     }
   }
-  console.log("unaswered: " + unanswered);
-  console.log("correct: " + correctGuesses);
-  console.log("wrong: " + wrongGuesses);
+  // console.log("unaswered: " + unanswered);
+  // console.log("correct: " + correctGuesses);
+  // console.log("wrong: " + wrongGuesses);
 }
-
-// TODO: delete/unnecessary
-// function getQuestions() {
-//   // brings questions from questions.js into this file
-//   // TODO: delete if smarter way to do this
-//   makeQuestions();
-//   console.log(questions); 
-// }
 
 function endGame() {
   // removes questions and puts up game outcome
@@ -135,11 +125,10 @@ function initializeDisplay() {
 }
 
 function initializeGlobals() {
-  console.log("initializing globals");
+  // console.log("initializing globals");
   correctGuesses = 0;
   wrongGuesses = 0;
   unanswered = 0;
-  timeLeft = true;
   numQuestions = 10;
   userAnswers= [];
   // indices in order of corresponding questions
@@ -147,12 +136,12 @@ function initializeGlobals() {
 }
 
 function main() {
-  console.log("starting main");
+  // console.log("starting main");
   initializeGlobals();
   initializeDisplay();
   // call to function in questions.js
   makeQuestions();
-  console.log("starting game play");
+  // console.log("starting game play");
   timer.run();
   // TODO: move to updateDisplay
   // hides the start button + takes up no space
@@ -164,20 +153,10 @@ function main() {
   // game runs until time expires/user clicks stop, triggering endGame()
 }
 
-//   // TODO - delete/unused
-// function scoreGame() {
-//   // displays correct/incorrect stats
-//   console.log("in scoreGame");
-//   // compose message to updateDisplay
-//   // to hide questions and display results
-//   var update;
-//   updateDisplay(update);
-// }
-
 function updateDisplay(update) {
   // intended to be sole render function
   //  TODO: make it so
-  console.log("in updateDisplay");
+  // console.log("in updateDisplay");
   $(update[0]).html(update[1]);
 }
 
@@ -185,7 +164,7 @@ function updateDisplay(update) {
 // =============================================================================
 
 $(function() {
-  console.log('page loaded');
+  // console.log('page loaded');
   $("#start").on("click", main);
   $("#stop").on("click", timer.stop);
 });
