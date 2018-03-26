@@ -1,0 +1,37 @@
+COMMIT TASK LIST
+[x] Get timer working and displaying correctly
+[x] Get radio button functionality working
+  (x) confirm in radio_buttons.html that I don't need <divs> around button groups
+  (x) Update html to have each question's radio buttons named the same -- and differently from all other groups
+  (x) Transfer/extend JS from radio-buttons.html to collect answers
+  (x) Trigger collect answers with stop button
+[x] Build evaluate outcomes 
+[x] click of stop triggers end of game
+[x] First round test - clock starts, but has no effect on game; answer questions; compute results
+[x] expiration of time triggers score game
+[x] move stop button to end of questions
+[x] make file that has only questions and concatenates all questions into HTML that can be displayed dynamically.
+[x] Update game-as-is to build the questions dynamically and verify they can be counted
+[x] hide questions and stop button; only show title and start button at game beginning
+[x] hide start button and only show timer, questions, and stop button once game has started
+[x] create permanent space for timer so its apppearance does not shove rest of page down
+[x] hide questions and stop button; show only title and results at game end
+[x] delete class 'questions' and ids q1, q2, ... q9 if unused
+[x] Second round test
+[x] Review and complete remaining TODOs, other than refactoring
+[x] Beautify page as time permits
+    (x) experiment with container-fluid; adjust page width ? - set container size in px?
+    (x) make first page "big enough" - try margin on button
+    (x) adjust button size and color
+    (x) label does not wrap away from button
+    (x) update stop button size, background color, and margins
+    (x) close up space between timer and first question
+    (x) update final page display per 2nd round test results;
+    (x) change background color for page
+    (x) update button background color and border color
+    (x) game title should use colored font
+[deferred] Refactor display code to single 'render' function - if time permits
+[x] Clean up all code
+    (x) Remove alert from Javascript
+    (x) Comment out or remove all console.logs
+[x] Final test before submission
