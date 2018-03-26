@@ -12,6 +12,7 @@ Add To GitHub Pages and More
 [] Add the game to your portfolio via an active link.
 [] Confirm Github Pages page is accessible from the Internet
 [] Confirm GitHub Pages page passes all test cases
+[] Remove remaining console.logs and commit to GitHub0
 [] Confirm updated portfolio in GitHub Pages is accessible and link to GitHub Pages page works
 
 

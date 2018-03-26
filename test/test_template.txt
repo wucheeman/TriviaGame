@@ -43,7 +43,6 @@ Functionality
 Display
 =======
 [] Game has all the basic parts shown in the picture of the demo. 
-[] TODO: Add specific behaviors from demo video
 
 GitHub Pages
 ============
