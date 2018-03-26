@@ -18,7 +18,7 @@ Add To GitHub Pages and More
 
 Submit Homework
 ===============
-[] Provide link to GitHub repo in BCS
-[] Provide link to GitHub Pages in BCS
-[] Provide link to updated portfolio in BCS
-[] Confirm all links are in BCS after submission
+[x] Provide link to GitHub repo in BCS
+[x] Provide link to GitHub Pages in BCS
+[x] Provide link to updated portfolio in BCS
+[x] Confirm all links are in BCS after submission
