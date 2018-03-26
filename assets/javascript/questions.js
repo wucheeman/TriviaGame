@@ -1,6 +1,12 @@
 // QUESTIONS FOR THE TRIVIA GAME
 //============================================================================
 
+/*
+TODO:
+1. Convert to template notation for easier future editing
+2. Improve responsiveness. Place in two rows with each answer in a column.
+*/
+
 var question_0 = '<!-- Row 2 --><div class="row"><div class="col-sm-2"></div><div class="col-sm-8 newcolor text-center questions" id="q0"><h5>What is the name of the computer shown as the background to this game?</h5><p><input type="radio" name="answers0" value="01" id="01" ><label for="01">ENIAC</label><input type="radio" name="answers0" value="02" id="02" ><label for="02">UNIVAC</label><input type="radio" name="answers0" value="03" id="03" ><label for="03">CANIAC</label><br><input type="radio" name="answers0" value="04" id="04" ><label for="04">MANIAC</label><input type="radio" name="answers0" value="05" id="05" ><label for="05">Colossus</label></p></div><div class="col-sm-2"></div></div>';
 
 var question_1 = '<!-- Row 3 --><div class="row"><div class="col-sm-2"></div><div class="col-sm-8 newcolor text-center questions" id="q1"><h5>Who organized the Mother of All Demos in 1968?</h5><p><input type="radio" name="answers1" value="11" id="11" ><label for="11">Steve Jobs</label><input type="radio" name="answers1" value="12" id="12" ><label for="12">Bill Gates</label><input type="radio" name="answers1" value="13" id="13" ><label for="13">Elon Musk</label><br><input type="radio" name="answers1" value="14" id="14" ><label for="14">Douglas Engelbart</label><input type="radio" name="answers1" value="15" id="15" ><label for="15">Robert Metcalfe</label></p></div><div class="col-sm-2"></div></div>';
