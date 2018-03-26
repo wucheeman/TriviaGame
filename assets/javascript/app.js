@@ -18,24 +18,20 @@ var timer = {
   decrement: function() {
     timer.number-- ;
     timer.time = timer.timeConverter(timer.number);
-    //  console.log(timer.time);
-    //  TODO: Move to the updatedisplay function?
+    //  TODO: Move to the updatedisplay function
     $("#show-timer").html("<h2>" + timer.time + "</h2>");
     if (timer.number <= 0) {
       timer.stop();
     }
   },
   run: function () {
-    // console.log("in timer.run()");
     timer.intervalId = setInterval( function() {
       timer.decrement();
     }, 1000);
-    //console.log("timer.intervalId is: " + timer.intervalId);
+
   },
   stop: function() {
   //  Clears intervalId
-    // console.log("in timer.stop()");
-    // console.log('timer.intervalId: ' + timer.intervalId);
     clearInterval(timer.intervalId);
     endGame();
   },
@@ -60,23 +56,16 @@ var timer = {
 // =============================================================================
 
 function collectAnswers() {
-  // console.log("in collectAnswers");
   var answered;
   for (var i = 0; i < numQuestions; i++) {
-    // if question not answered, value is 'undefined'
     answered = $('input[name=answers' + i + ']:checked').val();
-    // console.log(answered);
-    // console.log(typeof answered);
     userAnswers.push(answered);
   }
-  // console.log();
 }
 
 function determineOutcome(qAndA) {
   // decides outcome (right/wrong) and updates counters
-  // console.log("in determineOutcome");
   for (var i = 0; i < numQuestions; i ++) {
-    // console.log("i = " + i + "; userAnswers[i] is: " + userAnswers[i] + "correctAnswers[i] is: " + correctAnswers[i]);
     if (userAnswers[i] === undefined) {
       unanswered++;
     }
@@ -87,14 +76,10 @@ function determineOutcome(qAndA) {
       wrongGuesses++;
     }
   }
-  // console.log("unaswered: " + unanswered);
-  // console.log("correct: " + correctGuesses);
-  // console.log("wrong: " + wrongGuesses);
 }
 
 function endGame() {
   // removes questions and puts up game outcome
-  // timer.stop(); delete?
   collectAnswers();
   determineOutcome();
   var message =
@@ -118,14 +103,13 @@ function endGame() {
   $("#stop").css("visibility", "hidden");
 }
 
-// TODO or delete
 function initializeDisplay() {
   // this initializes display via call to updateDisplay
+  // TODO: replace with creation of message sent to UpdateDisplay()
   $("#show-timer").css("visibility", "visible");
 }
 
 function initializeGlobals() {
-  // console.log("initializing globals");
   correctGuesses = 0;
   wrongGuesses = 0;
   unanswered = 0;
@@ -136,12 +120,10 @@ function initializeGlobals() {
 }
 
 function main() {
-  // console.log("starting main");
   initializeGlobals();
   initializeDisplay();
   // call to function in questions.js
   makeQuestions();
-  // console.log("starting game play");
   timer.run();
   // TODO: move to updateDisplay
   // hides the start button + takes up no space
@@ -156,7 +138,6 @@ function main() {
 function updateDisplay(update) {
   // intended to be sole render function
   //  TODO: make it so
-  // console.log("in updateDisplay");
   $(update[0]).html(update[1]);
 }
 
@@ -164,7 +145,6 @@ function updateDisplay(update) {
 // =============================================================================
 
 $(function() {
-  // console.log('page loaded');
   $("#start").on("click", main);
   $("#stop").on("click", timer.stop);
 });

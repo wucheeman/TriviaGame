@@ -33,7 +33,6 @@ var questions = '';
 
 function makeQuestions() {
   for (i = 0; i < 10; i++) {
-    // TODO: remove this when happy with questions
     questions = questions + qArray[i];
   }
 }
